@@ -37,7 +37,7 @@ Here we have the file with the Spiders that Crawls the [quote.toscrape.com](http
 - Run the Spider and save the content in a json lines file.  
   `scrapy crawl quotes -O quotes.jl`
 
-1. AuthorSpider
+2. AuthorSpider
 
 - This Class is quite similar to _QuotesSpider_. It opens the same page, search for links to the author's page, open then and passes to another function called _parse_author_. Then it searchs for 'next' button to go to the next page and repeat the proccess.
 
@@ -58,3 +58,14 @@ This Spider gets every post title (its a link to the post page), request its and
 
 - Run the Robot  
   `scrapy crawl -O posts.jl`
+
+## Finally
+
+Thats It ;)
+
+Any Feedbacks you can:
+
+- E-mail lucasromero.cba@hotmail.com
+- Open an Issue
+
+Thanks
