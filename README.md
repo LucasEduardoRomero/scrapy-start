@@ -59,6 +59,22 @@ This Spider gets every post title (its a link to the post page), request its and
 - Run the Robot  
   `scrapy crawl -O posts.jl`
 
+### fatos_spider.py
+
+This file has 2 spiders: AosFatosSpider ans AosFatosCrawler. Both spiders scraps all the posts from checked news (tab "Checamos") from [aosfatos.org](https://www.aosfatos.org/).
+
+1. AosFatosSpider
+
+- Get Home page content and parse all the links on the tab "Checamos", get the request from each one and forward to _parse_category_ function
+
+- parse*category get all the posts from the page, requests each link and forward to \_parse_fato*. After that, it will look for 'next button', do the request and repeat the proccess
+
+- _parse_fato_ function will parse the title, date published, url from the page and EVERY quote and it status (Verdadeiro, Inconclusivo, Falso) and return.
+
+2. AosFatosCrawler
+
+- This spider works with a very similar way to the AosFatosSpider, but instead of define what to do, we just define how to do, with LinkExtractor and Rules.
+
 ## Finally
 
 Thats It ;)
