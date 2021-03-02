@@ -62,21 +62,30 @@ class AosFatosCrawler(CrawlSpider):
     start_urls = ['https://www.aosfatos.org/']
 
     rules = (
+        # Rule(
+        #     LinkExtractor(
+        #         restrict_xpaths=('//li[contains(text(), "Checamos")]//ul/li')
+        #     ),
+        #     callback='parse_category'
+        # ),
         Rule(
             LinkExtractor(
-                restrict_xpaths='//li[contains(text(), "Checamos")]//ul/li'
+                restrict_xpaths=('//nav/ul//li/a[re:test(@href, "checamos")]')
             ),
             callback='parse_category'
         ),
         Rule(
             LinkExtractor(
-                restrict_xpaths='//a[@class="next-arrow"]/@href'
+                restrict_xpaths=('//a[@class="next-arrow"]')
             ),
             callback='parse_category'
         ),
         Rule(
             LinkExtractor(
-                restrict_xpaths='//a[@class="card"]'
+                restrict_xpaths=(
+                    '//a[@class="card"]',
+                    '//a[@class="entry-card infinite-item "]',
+                )
             ),
             callback='parse_fato'
         )
